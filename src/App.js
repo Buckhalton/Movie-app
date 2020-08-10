@@ -1,37 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios';
+import theme from './theme.js';
+import { Box, ContainerBox } from './Components';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
 function App() {
-    const handleClick = () => {
-        axios
-            .get('/ping')
-            .then((res) => {
-                console.log('response:', res);
-            })
-            .catch((err) => {
-                console.log('error:', err);
-            });
-    };
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                    <button onClick={handleClick}>Click on me</button>
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Router>
+            <ThemeProvider theme={theme}>
+                <ContainerBox>
+                    <Switch>
+                        <Route path="/genres">
+                            <div>
+                                <Box
+                                    color={[
+                                        'darkError',
+                                        'darkPurple',
+                                        'darkBlue',
+                                    ]}
+                                >
+                                    genres
+                                </Box>
+                            </div>
+                        </Route>
+                        <Route path="/movies/:movieId">
+                            <div>users</div>
+                        </Route>
+                        <Route path="/">
+                            <div>home</div>
+                        </Route>
+                    </Switch>
+                </ContainerBox>
+            </ThemeProvider>
+        </Router>
     );
 }
 
