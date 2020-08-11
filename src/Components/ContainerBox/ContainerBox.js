@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { Box } from '../index';
 
-export const ContainerBox = styled.div`
+export const ContainerBox = styled(Box)`
     height: 100vh;
-    width: 100vw;
     background: #642b73; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to right,

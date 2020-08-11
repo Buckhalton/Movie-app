@@ -1,14 +1,16 @@
 import React from 'react';
 import theme from './theme.js';
-import { Box, ContainerBox } from './Components';
+import './App.css';
+import { Box, PageContainer } from './Components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import LandingPage from './Pages/LandingPage.js';
 
 function App() {
     return (
         <Router>
             <ThemeProvider theme={theme}>
-                <ContainerBox>
+                <PageContainer>
                     <Switch>
                         <Route path="/genres">
                             <div>
@@ -26,11 +28,9 @@ function App() {
                         <Route path="/movies/:movieId">
                             <div>users</div>
                         </Route>
-                        <Route path="/">
-                            <div>home</div>
-                        </Route>
+                        <Route path="/" component={LandingPage} />
                     </Switch>
-                </ContainerBox>
+                </PageContainer>
             </ThemeProvider>
         </Router>
     );
