@@ -4,12 +4,12 @@ import { Box, Column, Row, Text, Button } from '../Components';
 const LandingPage = ({ history }) => {
     return (
         <Box margin={0} padding={0} height="100%">
-            <Column height="100%" alignItems="center" justifyContent="center">
+            <Column height="50%" alignItems="center" justifyContent="center">
                 <Box justifyContent="center" height="35%" width="75%">
                     <Row justifyContent="center">
                         <Text size="title">Movie Randomizer</Text>
                     </Row>
-                    <Row justifyContent="center" mt={4}>
+                    <Row justifyContent="center" mt={3}>
                         <Text size="p">
                             Bored during quarantine? Or do you feel like you've
                             already seen every movie on Netflix? This app will
