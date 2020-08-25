@@ -32,7 +32,8 @@
         "eject": "react-scripts eject",
         "server": "node server/server.js",
         "test": "CI=true jest",
-        "test:staged": "corss-env CI=true jest --env=jsdom --findRelatedTests"
+        "test:staged": "cross-env CI=true jest --env=jsdom --findRelatedTests",
+        "precommit": "lint-staged"
     },
     "eslintConfig": {
         "extends": "react-app"

@@ -19,7 +19,7 @@ function App() {
                                         'darkBlue',
                                     ]}
                                 >
-                                    test
+                                    Genres
                                 </Box>
                             </div>
                         </Route>
