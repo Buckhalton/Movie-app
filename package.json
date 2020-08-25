@@ -6,9 +6,9 @@
     "dependencies": {
         "@emotion/core": "^10.0.28",
         "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.5.0",
         "@testing-library/user-event": "^7.2.1",
         "axios": "^0.19.2",
+        "cross-env": "^7.0.2",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "react": "^16.13.1",
@@ -21,9 +21,11 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "server": "node server/server.js"
+        "server": "node server/server.js",
+        "precommit": "lint-staged",
+        "test": "CI=true jest",
+        "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -38,6 +40,26 @@
             "last 1 chrome version",
             "last 1 firefox version",
             "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@testing-library/react": "^9.5.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.3",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.13",
+        "prettier": "^2.1.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.js": [
+            "prettier --write",
+            "eslint --fix",
+            "npm run test:staged"
         ]
     }
 }
