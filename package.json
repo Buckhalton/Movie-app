@@ -25,7 +25,7 @@
         "server": "node server/server.js",
         "precommit": "lint-staged",
         "test": "CI=true jest",
-        "test:staged": "cross-env CI=true jest --env=jsdom --findRelatedTests"
+        "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -57,6 +57,7 @@
     "lint-staged": {
         "src/**/*.js": [
             "prettier --write",
+            "eslint --fix",
             "npm run test:staged",
             "git add"
         ]
