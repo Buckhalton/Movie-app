@@ -25,7 +25,7 @@
         "server": "node server/server.js",
         "precommit": "lint-staged",
         "test": "CI=true jest",
-        "test:staged": "cross-env CI=true jest --env=jsdom --findRelatedTests"
+        "test:staged": "cross-env CI=true npm test --env=jsdom --findRelatedTests"
     },
     "eslintConfig": {
         "extends": "react-app"
