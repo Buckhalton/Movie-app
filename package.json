@@ -45,7 +45,6 @@
     "devDependencies": {
         "@testing-library/react": "^9.5.0",
         "husky": "^4.2.5",
-        "jest": "^26.4.2",
         "lint-staged": "^10.2.13",
         "prettier": "^2.1.0"
     },
@@ -58,8 +57,7 @@
         "src/**/*.js": [
             "prettier --write",
             "eslint --fix",
-            "npm run test:staged",
-            "git add"
+            "npm run test:staged"
         ]
     }
 }
